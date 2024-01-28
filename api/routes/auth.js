@@ -14,6 +14,7 @@ router.post("/register", async (req, res) => {
       userName: req.body.userName,
       email: req.body.email,
       password: hashedPassword,
+      
     });
 
     // Save user and respond
@@ -41,7 +42,7 @@ router.post("/login", async (req, res) => {
     }
 
     // If the email and password are valid, you can consider this a successful login
-    res.status(200).json("Login successful");
+    res.status(200).json(user);
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
